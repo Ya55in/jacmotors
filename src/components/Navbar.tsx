@@ -80,7 +80,11 @@ const Navbar = () => {
                       {item.dropdown.map((link, index) => (
                         <a
                           key={index}
-                          href={link === 'About JAC' ? '/about' : '#'}
+                          href={
+                            link === 'About JAC' ? '/about' : 
+                            link === 'History' ? '/history' : 
+                            '#'
+                          }
                           className="block px-4 py-3 text-white hover:bg-gray-800 transition-colors duration-200 text-sm"
                         >
                           {link}
@@ -151,14 +155,33 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-md border-t border-white/10">
             {navigationItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-white hover:text-gray-200 block px-3 py-2 text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              <div key={item.name}>
+                <a
+                  href={item.href}
+                  className="text-white hover:text-gray-200 block px-3 py-2 text-base font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+                {item.dropdown && (
+                  <div className="pl-4 space-y-1">
+                    {item.dropdown.map((link, index) => (
+                      <a
+                        key={index}
+                        href={
+                          link === 'About JAC' ? '/about' : 
+                          link === 'History' ? '/history' : 
+                          '#'
+                        }
+                        className="text-gray-300 hover:text-white block px-3 py-2 text-sm"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {link}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <div className="border-t border-white/10 pt-4">
               <div className="flex items-center px-3 py-2">
