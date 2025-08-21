@@ -203,7 +203,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2"
             >
               {currentSlideData.title}
             </motion.h1>
@@ -213,7 +213,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl lg:text-2xl mb-8 text-gray-200 font-light"
+              className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-200 font-light px-4 max-w-2xl mx-auto"
             >
               {currentSlideData.subtitle}
             </motion.p>
@@ -226,10 +226,10 @@ const HeroSection = () => {
             >
               <a
                 href={currentSlideData.ctaLink}
-                className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 text-lg shadow-lg"
+                className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 text-base sm:text-lg shadow-lg"
               >
                 {currentSlideData.ctaText}
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -239,16 +239,16 @@ const HeroSection = () => {
       </div>
 
       {/* Slide Indicators - Horizontal lines */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex space-x-2">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex space-x-1 sm:space-x-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`transition-all duration-300 ${
                 index === currentSlide
-                  ? 'w-8 h-1 bg-white'
-                  : 'w-6 h-1 bg-white/50 hover:bg-white/75'
+                  ? 'w-6 sm:w-8 h-1 bg-white'
+                  : 'w-4 sm:w-6 h-1 bg-white/50 hover:bg-white/75'
               }`}
             />
           ))}

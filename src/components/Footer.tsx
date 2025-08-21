@@ -85,25 +85,25 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Footer Links */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-12"
         >
           {footerLinks.map((column, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <h3 className="text-lg font-bold mb-4 text-white">
+              <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-white">
                 {column.title}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-1 sm:space-y-2">
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <a 
                       href="#" 
-                      className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
+                      className="text-gray-300 hover:text-white transition-colors duration-300 text-xs sm:text-sm"
                     >
                       {link}
                     </a>
@@ -119,15 +119,15 @@ const Footer = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex justify-center space-x-6 mb-8"
+          className="flex justify-center space-x-4 sm:space-x-6 mb-6 sm:mb-8"
         >
           {socialIcons.map((social, index) => (
             <div key={index} className="flex items-center justify-center">
               {social.isTikTok ? (
                 // Custom TikTok icon
-                <div className={`w-10 h-10 ${social.bgColor} rounded-full flex items-center justify-center`}>
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 ${social.bgColor} rounded-full flex items-center justify-center`}>
                   <svg 
-                    className="w-5 h-5" 
+                    className="w-4 h-4 sm:w-5 sm:h-5" 
                     viewBox="0 0 24 24" 
                     fill="currentColor"
                   >
@@ -135,8 +135,8 @@ const Footer = () => {
                   </svg>
                 </div>
               ) : (
-                <div className={`w-10 h-10 ${social.bgColor} rounded-full flex items-center justify-center`}>
-                  <social.icon className={`w-5 h-5 ${social.color}`} />
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 ${social.bgColor} rounded-full flex items-center justify-center`}>
+                  <social.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${social.color}`} />
                 </div>
               )}
             </div>
@@ -148,9 +148,9 @@ const Footer = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-t border-gray-800 pt-6"
+          className="border-t border-gray-800 pt-4 sm:pt-6"
         >
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-xs sm:text-sm text-center">
             © 2025 JAC All Rights Reserved
           </p>
         </motion.div>

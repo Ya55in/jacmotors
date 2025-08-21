@@ -120,26 +120,26 @@ const ExploreModelsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-8 sm:mb-12"
         >
           EXPLORE JAC MODELS
         </motion.h2>
 
         {/* Category Tabs */}
-        <div className="flex justify-center mb-8">
-          <div className="flex space-x-8">
+        <div className="flex justify-center mb-6 sm:mb-8">
+          <div className="flex space-x-4 sm:space-x-8 overflow-x-auto pb-2 px-4 sm:px-0 scrollbar-hide">
             {categories.map((category, index) => (
               <motion.button
                 key={category.id}
                 onClick={() => handleCategoryChange(index)}
-                className={`flex flex-col items-center space-y-2 px-6 py-4 rounded-xl transition-all duration-300 ${
+                className={`flex flex-col items-center space-y-2 px-4 sm:px-6 py-3 sm:py-4 rounded-xl transition-all duration-300 flex-shrink-0 ${
                   activeCategory === index
                     ? 'bg-gray-100 border border-gray-300 shadow-sm'
                     : 'hover:bg-gray-50'
@@ -147,8 +147,8 @@ const ExploreModelsSection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-2xl">{category.icon}</span>
-                <span className={`font-semibold text-sm ${
+                <span className="text-xl sm:text-2xl">{category.icon}</span>
+                <span className={`font-semibold text-xs sm:text-sm text-center ${
                   activeCategory === index ? 'text-gray-900' : 'text-gray-600'
                 }`}>
                   {category.name}
@@ -159,13 +159,13 @@ const ExploreModelsSection = () => {
         </div>
 
         {/* Model Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="flex space-x-8">
+        <div className="flex justify-center mb-8 sm:mb-12">
+          <div className="flex space-x-4 sm:space-x-8 overflow-x-auto pb-2 px-4 sm:px-0 scrollbar-hide">
             {currentCategory.models.map((model, index) => (
               <motion.button
                 key={model.id}
                 onClick={() => handleModelChange(index)}
-                className={`relative font-medium text-lg transition-all duration-300 ${
+                className={`relative font-medium text-sm sm:text-lg transition-all duration-300 flex-shrink-0 ${
                   activeModel === index ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -191,29 +191,29 @@ const ExploreModelsSection = () => {
           <button
             onClick={handlePrevious}
             disabled={activeModel === 0}
-            className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+            className={`absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
               activeModel === 0
                 ? 'border-gray-300 text-gray-300 cursor-not-allowed'
                 : 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
             }`}
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={16} className="sm:w-6 sm:h-6" />
           </button>
 
           <button
             onClick={handleNext}
             disabled={activeModel === currentCategory.models.length - 1}
-            className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+            className={`absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
               activeModel === currentCategory.models.length - 1
                 ? 'border-gray-300 text-gray-300 cursor-not-allowed'
                 : 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
             }`}
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={16} className="sm:w-6 sm:h-6" />
           </button>
 
           {/* Vehicle Image */}
-          <div className="relative h-96 lg:h-[500px] overflow-hidden rounded-2xl">
+          <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] overflow-hidden rounded-2xl">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={`${activeCategory}-${activeModel}`}
@@ -245,9 +245,9 @@ const ExploreModelsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
         >
-          <button className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-300 shadow-lg">
+          <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-300 shadow-lg text-sm sm:text-base">
             Explore All
           </button>
         </motion.div>

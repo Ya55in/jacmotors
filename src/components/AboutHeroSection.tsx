@@ -102,45 +102,45 @@ const AboutHeroSection = () => {
         </button>
       </div>
 
-             {/* Hero Content - Bottom Left */}
-       <div className="relative z-10 h-full flex items-end justify-start">
-         <div className="px-8 pb-20 max-w-2xl">
-           {/* Text Content */}
-           <motion.div
-             initial={{ opacity: 0, y: 50 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.8 }}
-             className="text-white"
-           >
-             <motion.h1
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.6 }}
-               className="text-3xl lg:text-5xl font-bold mb-4 leading-tight"
-             >
-               Better Drive, Better Life
-             </motion.h1>
-             
-             <motion.p
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.6, delay: 0.2 }}
-               className="text-lg lg:text-xl text-gray-200 font-light"
-             >
-               JAC Motors has established since 1964.
-             </motion.p>
-           </motion.div>
-         </div>
-       </div>
+      {/* Hero Content - Bottom Left */}
+      <div className="relative z-10 h-full flex items-end justify-start">
+        <div className="px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20 max-w-2xl">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white"
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 leading-tight"
+            >
+              Better Drive, Better Life
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-base sm:text-lg lg:text-xl text-gray-200 font-light"
+            >
+              JAC Motors has established since 1964.
+            </motion.p>
+          </motion.div>
+        </div>
+      </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+          className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white rounded-full flex justify-center"
         >
-          <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+          <div className="w-1 h-2 sm:h-3 bg-white rounded-full mt-1.5 sm:mt-2"></div>
         </motion.div>
       </div>
     </section>

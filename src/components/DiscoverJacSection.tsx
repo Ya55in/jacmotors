@@ -97,21 +97,21 @@ const DiscoverJacSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-8 sm:mb-12"
         >
           DISCOVER JAC
         </motion.h2>
 
         {/* Navigation Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="flex space-x-8">
+        <div className="flex justify-center mb-8 sm:mb-12">
+          <div className="flex space-x-6 sm:space-x-8">
             {[
               { id: 'news', label: 'NEWS' },
               { id: 'events', label: 'EVENTS' }
@@ -119,7 +119,7 @@ const DiscoverJacSection = () => {
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'news' | 'events')}
-                className={`relative font-semibold text-lg transition-all duration-300 ${
+                className={`relative font-semibold text-base sm:text-lg transition-all duration-300 ${
                   activeTab === tab.id ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -147,7 +147,7 @@ const DiscoverJacSection = () => {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12"
           >
             {activeTab === 'news' ? (
               // News Cards
@@ -158,7 +158,7 @@ const DiscoverJacSection = () => {
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
                 >
                   {/* Image Container with Hover Effect */}
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -172,20 +172,20 @@ const DiscoverJacSection = () => {
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileHover={{ opacity: 1, scale: 1 }}
-                        className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                        className="bg-white/90 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
                       >
-                        <span className="text-gray-900 font-semibold text-sm">Read More</span>
+                        <span className="text-gray-900 font-semibold text-xs sm:text-sm">Read More</span>
                       </motion.div>
                     </div>
                   </div>
                   
                   {/* Content */}
-                  <div className="p-6">
-                    <p className="text-gray-500 text-sm mb-3">{item.date}</p>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+                  <div className="p-4 sm:p-6">
+                    <p className="text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3">{item.date}</p>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-sm line-clamp-3">
+                    <p className="text-gray-600 text-xs sm:text-sm line-clamp-3">
                       {item.description}
                     </p>
                   </div>
@@ -200,7 +200,7 @@ const DiscoverJacSection = () => {
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
                 >
                   {/* Image Container with Hover Effect */}
-                  <div className="relative h-64 overflow-hidden bg-gray-200">
+                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-200">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -214,9 +214,9 @@ const DiscoverJacSection = () => {
                     />
                     
                     {/* Overlay Text */}
-                    <div className="absolute top-4 left-4 text-white z-10">
-                      <h4 className="text-xl font-bold mb-1 drop-shadow-lg">{item.overlayTitle}</h4>
-                      <p className="text-sm opacity-90 drop-shadow-lg">{item.overlaySubtitle}</p>
+                    <div className="absolute top-3 sm:top-4 left-3 sm:left-4 text-white z-10">
+                      <h4 className="text-lg sm:text-xl font-bold mb-1 drop-shadow-lg">{item.overlayTitle}</h4>
+                      <p className="text-xs sm:text-sm opacity-90 drop-shadow-lg">{item.overlaySubtitle}</p>
                     </div>
                     
                     {/* Hover Overlay */}
@@ -224,17 +224,17 @@ const DiscoverJacSection = () => {
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileHover={{ opacity: 1, scale: 1 }}
-                        className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                        className="bg-white/90 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
                       >
-                        <span className="text-gray-900 font-semibold text-sm">View Event</span>
+                        <span className="text-gray-900 font-semibold text-xs sm:text-sm">View Event</span>
                       </motion.div>
                     </div>
                   </div>
                   
                   {/* Content */}
-                  <div className="p-6">
-                    <p className="text-gray-500 text-sm mb-3">{item.date}</p>
-                    <h3 className="text-lg font-semibold text-gray-900">
+                  <div className="p-4 sm:p-6">
+                    <p className="text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3">{item.date}</p>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">
                       {item.title}
                     </h3>
                   </div>
@@ -251,7 +251,7 @@ const DiscoverJacSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center"
         >
-          <button className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-300 shadow-lg">
+          <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-300 shadow-lg text-sm sm:text-base">
             Explore All
           </button>
         </motion.div>

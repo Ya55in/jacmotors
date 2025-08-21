@@ -43,7 +43,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-black/20 via-black/10 to-transparent backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <div className="flex items-center">
@@ -52,7 +52,7 @@ const Navbar = () => {
                 alt="JAC Motors Logo"
                 width={120}
                 height={40}
-                className="h-8 w-auto"
+                className="h-6 sm:h-8 w-auto"
               />
             </div>
           </div>
@@ -142,9 +142,9 @@ const Navbar = () => {
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
               {isMenuOpen ? (
-                <X className="block h-6 w-6" />
+                <X className="block h-5 w-5 sm:h-6 sm:w-6" />
               ) : (
-                <Menu className="block h-6 w-6" />
+                <Menu className="block h-5 w-5 sm:h-6 sm:w-6" />
               )}
             </button>
           </div>
@@ -188,11 +188,11 @@ const Navbar = () => {
             <div className="border-t border-white/10 pt-4">
               <div className="flex items-center px-3 py-2">
                 <Search className="w-4 h-4 mr-2 text-white" />
-                <span className="text-white">Search</span>
+                <span className="text-white text-sm">Search</span>
               </div>
               <div className="flex items-center px-3 py-2">
                 <Globe className="w-4 h-4 mr-2 text-white" />
-                <span className="text-white">Language</span>
+                <span className="text-white text-sm">Language</span>
               </div>
               {languages.map((language) => (
                 <a

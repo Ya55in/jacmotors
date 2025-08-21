@@ -35,27 +35,27 @@ const WonderfulJacSection = () => {
         className="bg-gray-100 py-3 border-b border-gray-200"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl lg:text-2xl font-bold text-gray-800 text-center">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 text-center">
             WONDERFUL JAC
           </h2>
         </div>
       </motion.div>
 
-      {/* 3-Column Layout */}
+      {/* 3-Column Layout - Stack on mobile */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        className="min-h-[80vh] flex"
+        className="min-h-[60vh] sm:min-h-[80vh] flex flex-col sm:flex-row"
       >
         {/* First Column - 30% Text + 70% Image */}
         <motion.div
           variants={itemVariants}
-          className="w-1/3 flex flex-col"
+          className="w-full sm:w-1/3 flex flex-col h-64 sm:h-auto"
         >
           {/* Top 30% - Text Area */}
-          <div className="h-[30%] bg-white flex flex-col justify-center p-6">
-            <h2 className="text-2xl lg:text-3xl font-bold text-black mb-3">
+          <div className="h-1/3 sm:h-[30%] bg-white flex flex-col justify-center p-4 sm:p-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black mb-2 sm:mb-3">
               JAC LIFE
             </h2>
             <p className="text-sm lg:text-base text-black">
@@ -64,7 +64,7 @@ const WonderfulJacSection = () => {
           </div>
           
           {/* Bottom 70% - Image */}
-          <div className="h-[70%] relative overflow-hidden">
+          <div className="h-2/3 sm:h-[70%] relative overflow-hidden">
             <Image
               src="/assets/WONDERFUL JAC/it1.8a83ef6.png"
               alt="JAC Logo with foliage"
@@ -77,7 +77,7 @@ const WonderfulJacSection = () => {
         {/* Second Column - Full Image */}
         <motion.div
           variants={itemVariants}
-          className="w-1/3 relative overflow-hidden"
+          className="w-full sm:w-1/3 relative overflow-hidden h-64 sm:h-auto"
         >
           <Image
             src="/assets/WONDERFUL JAC/it2.67c382a.png"
@@ -90,10 +90,10 @@ const WonderfulJacSection = () => {
         {/* Third Column - 70% Image + 30% Text Overlay */}
         <motion.div
           variants={itemVariants}
-          className="w-1/3 flex flex-col"
+          className="w-full sm:w-1/3 flex flex-col h-64 sm:h-auto"
         >
           {/* Top 70% - Single Image */}
-          <div className="h-[70%] relative overflow-hidden">
+          <div className="h-2/3 sm:h-[70%] relative overflow-hidden">
             <Image
               src="/assets/WONDERFUL JAC/it3.775b84d.png"
               alt="White JAC SUV"
@@ -103,12 +103,12 @@ const WonderfulJacSection = () => {
           </div>
           
           {/* Bottom 30% - Text Overlay */}
-          <div className="h-[30%] bg-amber-800/90 flex flex-col justify-center p-4">
-            <h3 className="text-lg lg:text-xl font-bold text-white text-center mb-2">
+          <div className="h-1/3 sm:h-[30%] bg-amber-800/90 flex flex-col justify-center p-3 sm:p-4">
+            <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white text-center mb-1 sm:mb-2">
               JAC STORIES
             </h3>
             <div className="text-center">
-              <button className="bg-white text-black px-4 py-2 rounded text-sm font-semibold hover:bg-gray-100 transition-colors duration-300">
+              <button className="bg-white text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold hover:bg-gray-100 transition-colors duration-300">
                 Explore More
               </button>
             </div>

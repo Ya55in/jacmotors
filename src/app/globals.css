@@ -108,3 +108,63 @@ html {
     rgba(0, 0, 0, 0.4) 100%
   );
 }
+
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* Mobile-specific utilities */
+@media (max-width: 640px) {
+  .mobile-text-center {
+    text-align: center;
+  }
+  
+  .mobile-px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .mobile-py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Touch-friendly button sizes */
+@media (max-width: 640px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Better mobile typography */
+@media (max-width: 640px) {
+  .mobile-text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .mobile-text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .mobile-text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
