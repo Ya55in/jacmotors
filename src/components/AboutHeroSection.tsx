@@ -7,29 +7,14 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 const AboutHeroSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Handle user interaction to enable autoplay
   useEffect(() => {
-    const handleUserInteraction = () => {
-      setHasUserInteracted(true);
-      if (videoRef.current) {
-        videoRef.current.play().catch(error => {
-          console.log('Video play after interaction failed:', error);
-        });
-      }
-    };
-
-    document.addEventListener('click', handleUserInteraction, { once: true });
-    document.addEventListener('touchstart', handleUserInteraction, { once: true });
-    document.addEventListener('keydown', handleUserInteraction, { once: true });
-
-    return () => {
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('touchstart', handleUserInteraction);
-      document.removeEventListener('keydown', handleUserInteraction);
-    };
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log('Video autoplay failed (this is normal):', error);
+      });
+    }
   }, []);
 
   const handleVideoToggle = () => {

@@ -10,7 +10,6 @@ const HeroSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true); // Start muted for autoplay
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const heroSlides = [
@@ -59,28 +58,6 @@ const HeroSection = () => {
 
     return () => clearInterval(interval);
   }, [heroSlides.length]);
-
-  // Handle user interaction to enable autoplay
-  useEffect(() => {
-    const handleUserInteraction = () => {
-      setHasUserInteracted(true);
-      if (videoRef.current && heroSlides[currentSlide].type === "video") {
-        videoRef.current.play().catch(error => {
-          console.log('Video play after interaction failed:', error);
-        });
-      }
-    };
-
-    document.addEventListener('click', handleUserInteraction, { once: true });
-    document.addEventListener('touchstart', handleUserInteraction, { once: true });
-    document.addEventListener('keydown', handleUserInteraction, { once: true });
-
-    return () => {
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('touchstart', handleUserInteraction);
-      document.removeEventListener('keydown', handleUserInteraction);
-    };
-  }, [currentSlide, heroSlides]);
 
   useEffect(() => {
     // Load and play video when slide changes

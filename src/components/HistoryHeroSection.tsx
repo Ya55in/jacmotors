@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 const HistoryHeroSection = () => {
@@ -81,8 +81,6 @@ const HistoryHeroSection = () => {
       description: 'JAC Motors continues its global expansion with new markets and innovative technologies.'
     }
   ];
-
-  const currentMilestone = firstTimelineData.find(item => item.year === activeYear);
 
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
@@ -405,7 +403,7 @@ const HistoryHeroSection = () => {
             <div className="text-white max-w-sm sm:max-w-md lg:max-w-lg text-center lg:text-left">
               <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4">December, 2023</div>
               <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
-                JAC Group signed 'Intelligent New Energy Automobile Cooperation Agreement' with Huawei Terminal Co., Ltd. The two parties will cooperate in various fields to create luxury intelligent electric vehicles.
+                JAC Group signed &apos;Intelligent New Energy Automobile Cooperation Agreement&apos; with Huawei Terminal Co., Ltd. The two parties will cooperate in various fields to create luxury intelligent electric vehicles.
               </p>
             </div>
           </div>

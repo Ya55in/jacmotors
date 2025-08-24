@@ -40,7 +40,7 @@ const PhilosophySection8 = () => {
                 Enthusiasm
               </h3>
               <p className="text-lg text-black leading-relaxed">
-                With reliable, trustworthy and down-to-earth research, relying on leading technology and long manufacturing history, strive to introduce high-quality products, and make consumers' lives more secure and easy.
+                With reliable, trustworthy and down-to-earth research, relying on leading technology and long manufacturing history, strive to introduce high-quality products, and make consumers&apos; lives more secure and easy.
               </p>
             </div>
             

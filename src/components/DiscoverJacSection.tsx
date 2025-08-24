@@ -151,7 +151,7 @@ const DiscoverJacSection = () => {
           >
             {activeTab === 'news' ? (
               // News Cards
-              newsItems.map((item, index) => (
+              newsItems.map((item) => (
                 <motion.div
                   key={item.id}
                   variants={cardVariants}
@@ -164,7 +164,7 @@ const DiscoverJacSection = () => {
                       alt={item.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => console.error('Image failed to load:', item.image)}
+                      onError={() => console.error('Image failed to load:', item.image)}
                       onLoad={() => console.log('Image loaded successfully:', item.image)}
                     />
                     {/* Hover Overlay */}
@@ -193,7 +193,7 @@ const DiscoverJacSection = () => {
               ))
             ) : (
               // Event Cards
-              eventItems.map((item, index) => (
+              eventItems.map((item) => (
                 <motion.div
                   key={item.id}
                   variants={cardVariants}
@@ -206,9 +206,8 @@ const DiscoverJacSection = () => {
                       alt={item.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
+                      onError={() => {
                         console.error('Event image failed to load:', item.image);
-                        console.error('Error details:', e);
                       }}
                       onLoad={() => console.log('Event image loaded successfully:', item.image)}
                     />

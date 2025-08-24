@@ -23,10 +23,10 @@ const PhilosophySection5 = () => {
               Brand Core
             </h2>
             <p className="text-lg text-black leading-relaxed">
-              "Think & Create" is the grand layout of JAC to "create a better vehicle life". JAC always stays true to original aspiration, adheres to the dream of manufacturing vehicles, and raises the banner of Chinese independent brand in auto industry.
+              &ldquo;Think & Create&rdquo; is the grand layout of JAC to &ldquo;create a better vehicle life&rdquo;. JAC always stays true to original aspiration, adheres to the dream of manufacturing vehicles, and raises the banner of Chinese independent brand in auto industry.
             </p>
             <p className="text-lg text-black leading-relaxed mt-4">
-              "Be a Doer" is a concrete manifestation of JAC fighting spirit, and it is the hard power and pragmatic image of JAC Motors.
+              &ldquo;Be a Doer&rdquo; is a concrete manifestation of JAC fighting spirit, and it is the hard power and pragmatic image of JAC Motors.
             </p>
           </div>
         </div>
