@@ -53,6 +53,7 @@ const Navbar = () => {
                 width={120}
                 height={40}
                 className="h-6 sm:h-8 w-auto"
+                priority
               />
             </div>
           </div>
@@ -84,6 +85,7 @@ const Navbar = () => {
                             link === 'About JAC' ? '/about' : 
                             link === 'History' ? '/history' : 
                             link === 'Philosophy' ? '/philosophy' : 
+                            link === 'R&D' ? '/rd' : 
                             '#'
                           }
                           className="block px-4 py-3 text-white hover:bg-gray-800 transition-colors duration-200 text-sm"
@@ -167,17 +169,18 @@ const Navbar = () => {
                 {item.dropdown && (
                   <div className="pl-4 space-y-1">
                     {item.dropdown.map((link, index) => (
-                      <a
-                        key={index}
-                        href={
-                          link === 'About JAC' ? '/about' : 
-                          link === 'History' ? '/history' : 
-                          link === 'Philosophy' ? '/philosophy' : 
-                          '#'
-                        }
-                        className="text-gray-300 hover:text-white block px-3 py-2 text-sm"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
+                                              <a
+                          key={index}
+                          href={
+                            link === 'About JAC' ? '/about' : 
+                            link === 'History' ? '/history' : 
+                            link === 'Philosophy' ? '/philosophy' : 
+                            link === 'R&D' ? '/rd' : 
+                            '#'
+                          }
+                          className="text-gray-300 hover:text-white block px-3 py-2 text-sm"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
                         {link}
                       </a>
                     ))}

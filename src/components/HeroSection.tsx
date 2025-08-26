@@ -7,9 +7,9 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import Image from 'next/image';
 
 const HeroSection = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true); // Start muted for autoplay
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const heroSlides = [
@@ -51,6 +51,8 @@ const HeroSection = () => {
     }
   ];
 
+  const currentSlideData = heroSlides[currentSlide];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -60,23 +62,13 @@ const HeroSection = () => {
   }, [heroSlides.length]);
 
   useEffect(() => {
-    // Load and play video when slide changes
-    if (videoRef.current && heroSlides[currentSlide].type === "video" && heroSlides[currentSlide].videoSrc) {
+    if (videoRef.current && heroSlides[currentSlide].type === "video") {
       videoRef.current.src = heroSlides[currentSlide].videoSrc;
       videoRef.current.load();
-      
-      // Try to play video with better error handling
-      const playVideo = async () => {
-        try {
-          await videoRef.current!.play();
-          setIsVideoPlaying(true);
-        } catch (error) {
-          console.log('Video autoplay failed (this is normal):', error);
-          setIsVideoPlaying(false);
-        }
-      };
-      
-      playVideo();
+      videoRef.current.play().catch(error => {
+        console.log('Video autoplay failed (this is normal):', error);
+        setIsVideoPlaying(false);
+      });
     }
   }, [currentSlide, heroSlides]);
 
@@ -102,8 +94,6 @@ const HeroSection = () => {
     }
   };
 
-  const currentSlideData = heroSlides[currentSlide];
-
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Background */}
@@ -117,17 +107,6 @@ const HeroSection = () => {
             playsInline
             className="w-full h-full object-cover"
             poster="/assets/hero/download.png"
-            onError={(e) => console.error('Video error:', e)}
-            onLoadStart={() => console.log('Video loading started')}
-            onCanPlay={() => console.log('Video can play')}
-            onPlay={() => {
-              console.log('Video is playing');
-              setIsVideoPlaying(true);
-            }}
-            onPause={() => {
-              console.log('Video is paused');
-              setIsVideoPlaying(false);
-            }}
           >
             <source src={currentSlideData.videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
@@ -139,9 +118,10 @@ const HeroSection = () => {
             fill
             className="object-cover"
             priority
+            sizes="100vw"
           />
         )}
-        
+
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
@@ -180,21 +160,21 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2"
+              className="text-5xl lg:text-7xl font-bold mb-6 leading-tight"
             >
               {currentSlideData.title}
             </motion.h1>
-            
+
             <motion.p
               key={`subtitle-${currentSlide}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-200 font-light px-4 max-w-2xl mx-auto"
+              className="text-xl lg:text-2xl mb-8 text-gray-200 font-light"
             >
               {currentSlideData.subtitle}
             </motion.p>
-            
+
             <motion.div
               key={`cta-${currentSlide}`}
               initial={{ opacity: 0, y: 20 }}
@@ -203,10 +183,10 @@ const HeroSection = () => {
             >
               <a
                 href={currentSlideData.ctaLink}
-                className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 text-base sm:text-lg shadow-lg"
+                className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 text-lg shadow-lg"
               >
                 {currentSlideData.ctaText}
-                <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -216,16 +196,16 @@ const HeroSection = () => {
       </div>
 
       {/* Slide Indicators - Horizontal lines */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex space-x-1 sm:space-x-2">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex space-x-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`transition-all duration-300 ${
                 index === currentSlide
-                  ? 'w-6 sm:w-8 h-1 bg-white'
-                  : 'w-4 sm:w-6 h-1 bg-white/50 hover:bg-white/75'
+                  ? 'w-8 h-1 bg-white'
+                  : 'w-6 h-1 bg-white/50 hover:bg-white/75'
               }`}
             />
           ))}

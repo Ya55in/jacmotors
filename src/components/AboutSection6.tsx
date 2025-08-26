@@ -86,3 +86,4 @@ const AboutSection6 = () => {
 };
 
 export default AboutSection6;
+

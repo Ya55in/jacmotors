@@ -49,3 +49,4 @@ const PhilosophySection4 = () => {
 };
 
 export default PhilosophySection4;
+

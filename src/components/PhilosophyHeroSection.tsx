@@ -24,3 +24,4 @@ const PhilosophyHeroSection = () => {
 };
 
 export default PhilosophyHeroSection;
+
