@@ -20,3 +20,4 @@ const PhilosophySection3 = () => {
 
 export default PhilosophySection3;
 
+

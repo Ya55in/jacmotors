@@ -11,6 +11,9 @@ import RDSection8 from '@/components/RDSection8';
 import RDSection9 from '@/components/RDSection9';
 import RDSection10 from '@/components/RDSection10';
 import RDSection11 from '@/components/RDSection11';
+import RDSection13 from '@/components/RDSection13';
+import RDSection14 from '@/components/RDSection14';
+import RDSection15 from '@/components/RDSection15';
 import Footer from '@/components/Footer';
 
 export default function RDPage() {
@@ -29,6 +32,9 @@ export default function RDPage() {
       <RDSection9 />
       <RDSection10 />
       <RDSection11 />
+      <RDSection13 />
+      <RDSection14 />
+      <RDSection15 />
       {/* Add more R&D content sections here in the future */}
       <Footer />
     </main>

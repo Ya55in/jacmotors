@@ -86,6 +86,7 @@ const Navbar = () => {
                             link === 'History' ? '/history' : 
                             link === 'Philosophy' ? '/philosophy' : 
                             link === 'R&D' ? '/rd' : 
+                            link === 'CSR' ? '/csr' : 
                             '#'
                           }
                           className="block px-4 py-3 text-white hover:bg-gray-800 transition-colors duration-200 text-sm"
@@ -176,6 +177,7 @@ const Navbar = () => {
                             link === 'History' ? '/history' : 
                             link === 'Philosophy' ? '/philosophy' : 
                             link === 'R&D' ? '/rd' : 
+                            link === 'CSR' ? '/csr' : 
                             '#'
                           }
                           className="text-gray-300 hover:text-white block px-3 py-2 text-sm"
