@@ -87,6 +87,7 @@ const Navbar = () => {
                             link === 'Philosophy' ? '/philosophy' : 
                             link === 'R&D' ? '/rd' : 
                             link === 'CSR' ? '/csr' : 
+                            link === 'JAC Life' ? '/jac-life' : 
                             '#'
                           }
                           className="block px-4 py-3 text-white hover:bg-gray-800 transition-colors duration-200 text-sm"
@@ -167,7 +168,7 @@ const Navbar = () => {
                 >
                   {item.name}
                 </a>
-                {item.dropdown && (
+                                    {item.dropdown && (
                   <div className="pl-4 space-y-1">
                     {item.dropdown.map((link, index) => (
                                               <a
@@ -178,6 +179,7 @@ const Navbar = () => {
                             link === 'Philosophy' ? '/philosophy' : 
                             link === 'R&D' ? '/rd' : 
                             link === 'CSR' ? '/csr' : 
+                            link === 'JAC Life' ? '/jac-life' : 
                             '#'
                           }
                           className="text-gray-300 hover:text-white block px-3 py-2 text-sm"
